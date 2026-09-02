@@ -21,13 +21,14 @@ Paint with render_edited_image on the read_file id of that canvas. Keep the canv
 
 Origin is top-left.
 
-Dead zones (must be empty of type and focal art)
+Focal-content exclusion zones
 
-- Left gutter — x 0-480 (32 percent)
-- Avatar disk on web — roughly a 200-220 px circle centered near x 110, y 390. Pad to a box x 0-420, y 220-500
+- Avatar disk on web — roughly a 200-220 px circle centered near x 110, y 390. Check with a modest padded circle
 - Mobile vertical crop — y 0-90 and y 410-500
 
-Live band (all titles, subtitles, globes, trails)
+These zones are not blank-canvas requirements. Backgrounds, paper grain, grids, rules, color fields, and non-critical decoration should continue through them. Keep type, logos, faces, and irreplaceable focal objects outside them.
+
+Default type band
 
 - x 570-1380
 - y 110-390
@@ -37,10 +38,12 @@ Preferred type block
 - x 620-1100
 - y 160-340
 
-Preferred motif (network, landscape, object)
+Preferred focal motif
 
 - x 1100-1450
 - y 120-380
+
+These are defaults, not a universal right-half template. A style may use another composition when the text and focal content remain clear of the avatar circle and mobile crop edges. The visual language must span the full 1500 px width.
 
 ## Prompt fragments (paste)
 
@@ -48,13 +51,14 @@ Avatar
 Keep this exact 1-1 square canvas. Fill the frame. No letterbox, no 2-3 portrait. Center the emblem so a circular crop keeps the whole motif. Letters nearly reach the left and right of the circle. Never write 84, 86, percent, or px next to the brand name.
 
 Banner
-Keep this exact 3-1 canvas (three times wider than tall). No 16-9, no added bars. Leave the left third empty. Leave the bottom-left quarter empty for the circular avatar. Keep all type and focal objects inside the middle-right live band. Keep type out of the top and bottom fifths so mobile crops cannot cut letters.
+Keep this exact 3-1 canvas (three times wider than tall). No 16-9, no added bars. Carry the style language across the full width. The bottom-left avatar circle may cover background and non-critical decoration, but never type, a face, a logo, or the key focal object. Keep type out of the top and bottom fifths so mobile crops cannot cut letters. Do not default to a blank-left/right-full composition.
 
 ## Check before sending to the user
 
 - Avatar file reads as width == height
 - Banner file reads as width == 3 * height (allow 1 percent)
-- Cover mock in your head — drop a circle on the bottom-left. If it covers a letter or a globe, reject and repaint
+- Cover check — place a roughly 220 px circle near x 110, y 390. If it covers type or the key focal object, reject and repaint; covering continuous background or non-critical texture is acceptable
+- Type contrast — every letter of the banner line and of HUZI reads against the local field (references/design-bar.md)
 
 
 ## Avatar fill

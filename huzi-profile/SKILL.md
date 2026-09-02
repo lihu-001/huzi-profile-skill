@@ -30,7 +30,9 @@ Do not pick a style pack until this sentence exists. Style packs are textures fo
 4. Design the 1500x500 banner first. It must carry the offer.
 5. Derive the 1408x1408 avatar from the banner's design language — same method, type cut, color system, and spatial idea. Do not invent a second system. Do not confuse language with photocopying the banner's wood or paper.
    Two packs that both output black HUZI on cream have lost the style. Clear terminal must still be a grid + caret. Field folio must still be an annotated sheet. Protocol kitchen must still be one quiet object. The name stays HUZI; the style must still be readable with the name covered.
-6. Stunning test — hide the name. Would a design jury remember one decision (one cut of type, one material, one spatial idea)? If it only looks tidy, redo.
+6. Paint a wordless ground first. Set the banner line and the HUZI mark in a later pass (code or a second edit), not inside the image-model prompt. Accidental readable words on the ground are a defect. Type cut and ink follow the style.
+7. Type contrast — read references/design-bar.md. If a letter collides with the local field, recast only the type ink, then re-inspect. Do not add a generic plate.
+8. Stunning test — hide the name. Would a design jury remember one decision (one cut of type, one material, one spatial idea)? If it only looks tidy, redo.
 
 Read references/masters.md before prompting images.
 
@@ -73,7 +75,7 @@ Motif scale is mandatory. The mark must fill the circle, not sit as a badge in a
 - A tiny letter in a huge empty field is a defect. Redo it
 - No decorative wreaths, cameo faces, or nested circles that shrink the word
 
-No tiny text besides the mark. High contrast at 40px.
+No tiny text besides the mark. Type contrast in references/design-bar.md is mandatory; 40px is the avatar check size.
 When writing the image prompt, never put a percentage, pixel size, or the words inner/circle-safe next to the brand name. The model will typeset those numbers (HUZI 86). Describe fill as: the letters nearly reach the circular crop on left and right, only a thin margin remains.
 
 ### Banner canvas (mandatory)
@@ -92,16 +94,14 @@ Full safe-zone math is in references/safe-zones.md. Read it before writing any b
 
 X composites the circular avatar onto the banner. Web pins it to the bottom-left. Mobile also covers the bottom-left and crops extra from the top and bottom edges.
 
-Treat these regions as dead. No type, logos, faces, globes, trails, or focal objects.
+Treat the avatar overlap as a focal-content exclusion zone, not a blank canvas region. Backgrounds, texture, grids, rules, color fields, and non-critical decoration should continue across the full banner. Keep type, logos, faces, and irreplaceable focal objects outside the avatar circle and mobile crop edges.
 
-- Dead left — the left 32 percent of the width
-- Dead bottom-left box — left 28 percent x bottom 55 percent (avatar sits here)
-- Dead vertical edges — top 18 percent and bottom 18 percent (mobile crop)
-- Live band — horizontal 38–92 percent, vertical 22–78 percent
+- Avatar exclusion circle — approximately 220 px diameter, centered near x 110, y 390 on a 1500x500 banner; use a modest padded circle for checks
+- Dead vertical edges — top 18 percent and bottom 18 percent for type and focal objects only
+- Type band — horizontal 38–92 percent, vertical 22–78 percent by default; another position is allowed when the chosen style demands it and the avatar circle stays clear
+- Full canvas — visual language must span all 1500 pixels; the left side must not become a generic blank third
 
-Default type and motifs to the center-right of the live band. Never place a title where the user's screenshot problem happened — mid-left, overlapping the avatar.
-
-Do not repeat the avatar wordmark on the left of the banner. The avatar already occupies that corner.
+Compose each style by its own rules. Never reuse a mechanical left-empty/right-full template. Do not repeat the avatar wordmark in the banner; the avatar already carries the name.
 
 ## Output format
 
@@ -161,7 +161,7 @@ Studio textures in references/style-packs.md are the short recipe book. World-st
 ## What not to do
 
 - Do not ship portrait avatars or 16-9 banners
-- Do not put banner type or motifs in the left 32 percent or the top/bottom 18 percent
+- Do not put banner type or focal objects inside the bottom-left avatar circle or the top/bottom 18 percent; backgrounds and non-critical style elements must continue across the full width
 - Do not generate 20 name lists with no visuals
 - Do not use copyrighted character likenesses
 - Do not export Word/PDF unless asked
@@ -170,3 +170,4 @@ Studio textures in references/style-packs.md are the short recipe book. World-st
 - Do not ship a banner whose line could sit on any other studio — it must match this bio
 - Do not ship an avatar whose mark is a small island in empty space
 - Do not ship two packs that share the same silhouette (black HUZI on cream). Design language must identify the pack with the name covered
+- Do not ship type whose ink matches the local field, and do not hide the collision under a generic plate. Recast only the type ink (references/design-bar.md)

@@ -36,7 +36,7 @@ No binaries ship with this skill. Image tools differ by host.
 - If there is only text-to-image, demand those exact ratios in the prompt and reject 16:9 or portrait outputs.
 - Never treat a default landscape generate as an X banner.
 
-Rules that must survive the port: left-third banner dead zone, avatar mark nearly filling the circle, banner line taken from the bio, style number from `references/world-styles.md`.
+Rules that must survive the port: full-width banner design with only the bottom-left avatar circle excluding type and focal objects, avatar mark nearly filling the circle, banner line taken from the bio, style number from `references/world-styles.md`.
 
 ## How the user picks a style
 
@@ -116,7 +116,8 @@ One-person AI-media defaults: 01, 02, 03, 13, 16, 18, 19, 20, 25, 34.
 ## Hard specs
 
 - Avatar 1408×1408, letters almost fill the circular crop
-- Banner 1500×500, left third reserved for the avatar
+- Banner 1500×500, full-width visual language; keep type and focal objects clear of the bottom-left avatar circle
+- Type must contrast the local field (`references/design-bar.md`)
 - Never ship a default landscape generate as the banner
 
 Details: `SKILL.md`, `references/safe-zones.md`, `references/design-bar.md`.

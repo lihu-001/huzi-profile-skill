@@ -40,7 +40,7 @@ Thesis: a spec sheet that learned to speak.
 Method: Rams — one honest instrument, no styling.
 Palette: #1B1E22 #C5CBD3 #5B8DEF #E8EAED
 Avatar: one instrument on graphite — caliper, wafer shard, antenna. No face. No exploded collage.
-Banner: one faint dimension line and one ghost part in the live band only.
+Banner: one faint dimension line and one ghost part spanning the full field; keep the labeled focal detail clear of the avatar circle.
 Names: Qinghui / @qinghui ; Tol Lab / @tol_lab ; Delta Spec / @deltaspec
 Bio seed: I write things that reproduce. Failures get filed first.
 
@@ -51,7 +51,7 @@ Thesis: a desk that stays on after midnight.
 Method: Irma Boom — the page is the object.
 Palette: #1A1410 #E7C9A0 #8B3A2A #F3EDE4
 Avatar: one marked page corner or a lamp pool. Not a whole library set.
-Banner: a single open signature in the live band, walnut field, empty left.
+Banner: a single open signature over a full walnut field; let the desk surface continue behind the avatar circle without placing the signature there.
 Names: Yenhang / @yenhang ; Desk Proof / @deskproof ; Lamp Desk / @lampdesk
 Bio seed: I edit other people’s sentences and my own biases. Slow posts.
 
@@ -110,7 +110,7 @@ Thesis: limited palette as discipline.
 Method: Saville — one unexpected surface for a release, only if they ship.
 Palette: #1A1C2C #F4F4F4 #E83B3B #5D8AA8 #F2D35B
 Avatar: 32-pixel mark that still reads at 40px. Not a cute animal unless that is the shipped character.
-Banner: one side-scroll strip of the same world in the live band. Character off the left third.
+Banner: one side-scroll strip spanning the full width. Background tiles may pass behind the avatar; keep the character and critical pickups outside its circle.
 Names: Bit Remain / @bitremain ; Onebit / @onebitwalk ; Attic exe / @atticexe
 Bio seed: Tiny games and dev notes. Pixels are a constraint, not a filter.
 
@@ -121,7 +121,7 @@ Thesis: one number, then the argument. No call-to-action fireworks.
 Method: Aicher — one sign, one axis.
 Palette: #0E1A2B #F4F7FA #D4A017 #4F7CAC
 Avatar: one chalk glyph on navy.
-Banner: one axis and one point in the live band. Empty left.
+Banner: one axis extending across the full field and one focal point outside the avatar circle.
 Names: Board / @boardmacro ; Silt / @siltfx ; Count Room / @countroom
 Bio seed: Macro, market structure, where my math was wrong. No calls.
 
@@ -133,7 +133,7 @@ Thesis: the letter is the architecture.
 Method: Paula Scher — type hits the edge, the city is the grid.
 Palette: #111111 #F4F1EA #E23D28
 Avatar: HUZI so large the circular crop clips the letter edges on purpose. No inner badge.
-Banner: one word of the offer line hitting the top of the live band. Left third still empty.
+Banner: one word of the offer line hitting the top of the type band while the typographic architecture and color fields continue across the full width.
 
 ### Programme
 
@@ -196,7 +196,7 @@ Thesis: one plane, one sign.
 Method: Ikko Tanaka — color field + one mark. Latin only unless CJK requested.
 Palette: #E31C23 #F6E7C1 #1A1A1A
 Avatar: HUZI in black or cream on a single red (or gold) field filling the circle.
-Banner: the field occupies the live band only; left third stays quiet paper.
+Banner: the color field spans the full canvas; place the mark and banner line outside the avatar circle.
 
 ### Film gate
 
@@ -238,7 +238,7 @@ EN
 ## Image prompt skeletons
 
 Avatar onto 1408x1408
-Keep this exact 1-1 square canvas. Fill the frame. No letterbox. [one object from the practice] on [one material]. [hexes]. Circle-safe. No micro text unless the wordmark IS the mark and is large.
+Keep this exact 1-1 square canvas. Fill the frame. No letterbox. [one object from the practice] on [one material]. [hexes]. Wordless ground. Set HUZI in a later pass so it fills the circular crop and contrasts the local field (references/design-bar.md).
 
 Banner onto 1500x500
-Keep this exact 3-1 canvas. Left third empty. Bottom-left empty. In the live band, set the banner line taken from the bio. Same material as the avatar. Same hexes. No extra motto.
+Keep this exact 3-1 canvas. Carry the material and design language across the full width. Wordless ground. The bottom-left avatar circle may cover background and non-critical decoration, but never the later banner line or key focal object. Set the bio line in a later pass. Same material as the avatar. Same hexes. No extra motto. Type contrast: references/design-bar.md.

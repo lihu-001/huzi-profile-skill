@@ -26,11 +26,23 @@ Ask before sending — would this look at home on a small independent studio sit
 - Palette is 3-5 hexes used as ink, metal, paper, cloth. No rainbow accents.
 - Banner type is mandatory when the mark alone does not state the practice. Use 3-8 words cut from the bio, large, in the live band. Do not invent a second slogan. Do not stack title + subtitle + motto.
 - Surfaces must be specific — cold-pressed paper, anodized aluminum, kiln porcelain, chalk on navy board, 32-pixel tiles. "Futuristic dark background" is not a surface.
-- Composition is asymmetric and quiet. Large empty field is a feature.
+- Composition is asymmetric and quiet. Empty space may be a feature, but it must come from the selected style—not from a universal blank-left template. The style language should span the full banner.
 - Avatar must read as a mark at 40px — silhouette first, detail second.
 - Avatar mark fills 82-90 percent of the square. Slightly smaller than the circle, never a pea in a plate.
 - Avatar inherits the banner's design language (method, type, color, space), not a photocopy of its texture. Hide the word HUZI: you should still know which pack it is.
-- Banner must still work if you cover the left third with a black circle.
+- Banner must still work if you cover the bottom-left avatar circle. The circle may hide continuous background or non-critical texture, but never type or the key focal object.
+
+## Type contrast
+
+Paint the wordless ground first. Set the banner line and the HUZI mark in a later pass. Cut, tracking, size, and ink all come from the chosen style — Lubalin is tight grotesque in the pack's black or cream, not a caption box dropped on top of the pattern.
+
+After type is placed, look at the actual field under each letter. If a character shares value or hue with the pattern it sits on, recast only the type ink. Pick another color already in the style palette, or the opposite of the dominant local field. Do not add a plate, bar, or halo to solve a color collision. Then re-inspect.
+
+Avatar check size is 40px. Banner check size is a thumbnail.
+
+Busy fields are expected. Letter-like geometry is the field, not a substitute for the banner line or the name.
+
+Automatic fail: type that disappears into the field; and type that sits on a generic white or cream box that is not in the style.
 
 ## Banned defaults (automatic fail)
 

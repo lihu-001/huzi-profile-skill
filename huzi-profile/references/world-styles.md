@@ -7,10 +7,11 @@ When the user names a number, a Chinese/English style name, or says 全部 / all
 ## How to run
 
 1. Manufacture 1500x500 canvas, then `render_edited_image`. Never use landscape generate as the final banner.
-2. Left third empty. Live band only. Wordmark + banner line only.
-3. Never put adjectives, percents, or prompt notes next to the brand name.
-4. No musicians, instruments, or a second persona unless that is the IP.
-5. One style = one design language. Cover the name — the method must still be visible.
+2. Carry the selected design language across the full canvas. Keep type and key focal objects outside the bottom-left avatar circle; backgrounds and non-critical style elements may continue through it.
+3. Wordless ground, type in a later pass, contrast per SKILL.md steps 6–7 and references/design-bar.md.
+4. Never put adjectives, percents, or prompt notes next to the brand name.
+5. No musicians, instruments, or a second persona unless that is the IP.
+6. One style = one design language. Cover the name — the method must still be visible.
 
 Catalog mode (user asks for all, 对照, 选风格)
 
@@ -173,7 +174,7 @@ Fluorescent two-color overprint, grainy stencil, complete oversized word. Pink p
 
 ## Prompt skeleton
 
-Keep this exact 1500 by 500 three-to-one canvas. Left third empty. [style language] in the live band. Wordmark [NAME]. Banner line [LINE]. No extra words. No people unless the IP is a face.
+Keep this exact 1500 by 500 three-to-one canvas. Carry [style language] across the full width; do not leave a generic blank left third. Wordless ground — no readable words, no brand name. Keep key focal objects outside the bottom-left avatar circle and mobile crop edges. No people unless the IP is a face. Set the banner line in a later pass; it must contrast the local field (references/design-bar.md).
 
 ## Pairing with studio textures
 
