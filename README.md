@@ -6,11 +6,14 @@ License: MIT (`LICENSE`).
 
 ## Layout (Agent Skills spec)
 
+The repository root is the skill directory:
+
 ```
 huzi-profile/
 ├── SKILL.md
 ├── README.md
 ├── LICENSE
+├── assets/
 └── references/
     ├── world-styles.md
     ├── style-packs.md
@@ -21,9 +24,9 @@ huzi-profile/
 
 ## Install on another agent
 
-1. Keep the folder name `huzi-profile`.
-2. Load `SKILL.md` the way that host discovers skills (Claude/Codex `skills/` or `.agents/skills/`, Grok `.grok/skills/`, etc.).
-3. Allow on-demand reads of `references/*.md`.
+Clone this repository directly to the host's skill directory as `huzi-profile`, then load the root `SKILL.md`. Claude/Codex commonly use `skills/` or `.agents/skills/`; Grok commonly uses `.grok/skills/`.
+
+Allow on-demand reads of `references/*.md` and bundled previews from `assets/`.
 
 No binaries ship with this skill. Image tools differ by host.
 
