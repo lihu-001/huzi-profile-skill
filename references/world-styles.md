@@ -8,7 +8,7 @@ When the user names a number, a Chinese/English style name, or says 全部 / all
 
 1. Manufacture 1500x500 canvas, then `render_edited_image`. Never use landscape generate as the final banner.
 2. Carry the selected design language across the full canvas. Keep type and key focal objects outside the bottom-left avatar circle; backgrounds and non-critical style elements may continue through it.
-3. Wordless ground, type in a later pass, contrast per SKILL.md steps 6–7 and references/design-bar.md.
+3. Wordless ground, type in a later pass, contrast per SKILL.md steps 6–7 and references/design-bar.md. The banner line and the name mark come from this turn's First collect, not from `assets/` specimens.
 4. Never put adjectives, percents, or prompt notes next to the brand name.
 5. No musicians, instruments, or a second persona unless that is the IP.
 6. One style = one design language. Cover the name — the method must still be visible.
@@ -19,6 +19,7 @@ Catalog mode (user asks for all, 对照, 选风格)
 - Label each image with its number and name in the chat, not on the picture.
 - Do not also emit 50 avatars unless asked.
 - After a pick, derive the avatar from that language only.
+- When a style has both banner and avatar, write the 749x465 assembled preview to `.huzi-profile/{nn}-{slug}-preview.png`.
 
 ## Catalog
 

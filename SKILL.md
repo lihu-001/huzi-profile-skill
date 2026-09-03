@@ -22,6 +22,8 @@ Derive from that sentence
 
 Do not pick a style pack until this sentence exists. Style packs are textures for the IP, not costumes.
 
+「根据当前项目 / 重做 N 套 / 对照风格」means use this skill's method and the numbered style languages. It does not mean reuse a previous pack's identity.
+
 ## Order of making (mandatory)
 
 1. IP sentence and bio.
@@ -29,18 +31,21 @@ Do not pick a style pack until this sentence exists. Style packs are textures fo
 3. One master method from references/masters.md — a way of working, not a logo to copy.
 4. Design the 1500x500 banner first. It must carry the offer.
 5. Derive the 1408x1408 avatar from the banner's design language — same method, type cut, color system, and spatial idea. Do not invent a second system. Do not confuse language with photocopying the banner's wood or paper.
-   Two packs that both output black HUZI on cream have lost the style. Clear terminal must still be a grid + caret. Field folio must still be an annotated sheet. Protocol kitchen must still be one quiet object. The name stays HUZI; the style must still be readable with the name covered.
-6. Paint a wordless ground first. Set the banner line and the HUZI mark in a later pass (code or a second edit), not inside the image-model prompt. Accidental readable words on the ground are a defect. Type cut and ink follow the style.
-7. Type contrast — read references/design-bar.md. If a letter collides with the local field, recast only the type ink, then re-inspect. Do not add a generic plate.
+   Two packs that both output the same black wordmark on cream have lost the style. Clear terminal must still be a grid + caret. Field folio must still be an annotated sheet. Protocol kitchen must still be one quiet object. The name stays the collected display name; the style must still be readable with the name covered.
+6. Paint a wordless ground first. Set the banner line and the display-name mark in a later pass (code or a second edit), not inside the image-model prompt. Accidental readable words on the ground are a defect. Type cut, scale, and ink follow the style. Banner type is a lockup (about 16-30 percent of banner height, or it fills its module), not a caption.
+7. Type contrast — read references/design-bar.md. If type and picture are hard to separate, recast the **entire** lockup to one more distinct ink (palette optional). Keep anti-aliased edges. No generic plate. No per-letter ink.
 8. Stunning test — hide the name. Would a design jury remember one decision (one cut of type, one material, one spatial idea)? If it only looks tidy, redo.
-9. Assemble composite profile preview card (749x465) — combine the 3-1 banner, circular avatar, display name, verified badge, handle, bio, and X action buttons into the final preview image via `compose_preview.py` (or Python PIL). Deliver this composite preview directly in chat for user review.
+9. Assemble composite profile preview card (749x465) — combine the 3-1 banner, circular avatar, display name, verified badge, handle, bio, and X action buttons into the final preview image via `compose_preview.py` (or Python PIL). Write it to `.huzi-profile/` (single pack: `profile-preview.png`; each catalog style: `{nn}-{slug}-preview.png`). Deliver this composite preview directly in chat for user review.
 
 Read references/masters.md before prompting images.
 
-## First collect (ask only what is missing)
+## First collect (this turn, before any image)
+
+Ask only what this message does not state. A previous pack, `assets/` specimens, `.huzi-profile/` leftovers, and `compose_preview.py` defaults are not this turn's identity. Do not start canvases until the list below exists or the user confirms it.
 
 - IP sentence above
 - Purpose — personal creator, brand, alt
+- Display name, handle, bio — or permission to propose 3
 - Audience and language
 - Face on camera or mark-only
 - Constraints — no CJK on images, no face, must include a wordmark, etc.
@@ -55,7 +60,9 @@ If they only want options, write 3 different IP sentences and one pack each. Do 
 - Avatar upload — square 400x400 or larger, displayed as a circle
 - Banner upload — 1500x500, exact 3-1
 - Profile preview card — 749x465 (exact X dark-mode layout matching in-situ profile preview)
-- Default output directory — `.huzi-profile/` under the current workspace. All generated deliverables (`profile-preview.png`, `banner.png`, `avatar.png`) default to this directory.
+- Default output directory — `.huzi-profile/` under the current workspace. All generated deliverables go here, including assembled previews.
+- Single pack — `profile-preview.png` (749x465), `banner.png` (1500x500), `avatar.png` (1408x1408)
+- Multiple styles — `{nn}-{slug}-preview.png` for each assembled card (example: `.huzi-profile/01-swiss-preview.png`)
 
 ## Hard rule — never trust default image orientations
 
@@ -94,16 +101,31 @@ If the edit comes back taller than 1-3 of width, discard and rerun on a fresh 15
 Full safe-zone math is in references/safe-zones.md. Read it before writing any banner prompt.
 ### Profile preview card canvas (mandatory)
 
-After generating the 1500x500 banner and 1408x1408 avatar, assemble them into the 749x465 profile preview card so the user can directly see how their identity looks on X:
+After generating the 1500x500 banner and 1408x1408 avatar, assemble them into the 749x465 profile preview card so the user can directly see how their identity looks on X. Always write the card into `.huzi-profile/`.
+
+Single pack:
 
 ```bash
 python compose_preview.py \
   --banner .huzi-profile/banner.png \
   --avatar .huzi-profile/avatar.png \
-  --name "HUZI" \
-  --handle "@lihu9048" \
-  --bio "学习AI，分享AI" \
+  --name "<display name collected this turn>" \
+  --handle "<handle collected this turn>" \
+  --bio "<bio collected this turn>" \
   --out .huzi-profile/profile-preview.png
+```
+
+Each catalog style (对照 / 重做 N 套) — same script, named preview in the same folder. Name, handle, and bio still come from this turn, not from script defaults:
+
+```bash
+python compose_preview.py \
+  --banner assets/01-swiss.png \
+  --avatar assets/01-swiss-avatar.png \
+  --name "<display name collected this turn>" \
+  --handle "<handle collected this turn>" \
+  --bio "<bio collected this turn>" \
+  --out .huzi-profile/01-swiss-preview.png
+```
 
 Card layout specs (749 x 465):
 - Banner area: top 749 x 250 (exact 3:1 ratio).
@@ -143,7 +165,7 @@ Write the bio before the banner. The banner line must be a compression of that b
 7. Banner brief first — live band, dead zones, bio line, which master method
 8. Avatar brief — how it is derived from the banner
 9. Shared hex palette
-10. Assembled profile preview image (`.huzi-profile/profile-preview.png`, 749x465) — primary composite deliverable for user preview, displaying banner, avatar, name, handle, bio, and verified badge in situ.
+10. Assembled profile preview image in `.huzi-profile/` (749x465) — primary composite deliverable. Single pack: `profile-preview.png`. Multiple styles: `{nn}-{slug}-preview.png`.
 11. Production upload assets via the canvas pipeline: `.huzi-profile/banner.png` (1500x500) and `.huzi-profile/avatar.png` (1408x1408 square).
 
 Max 5 packs. Prefer 3.
@@ -180,7 +202,7 @@ Invented marks — generate freely. Real named people — image-gen-edit skill.
 
 User may pick by number (01-50), English name, or Chinese name. Catalog is README.md plus references/world-styles.md.
 
-If they say 对照 / 全部风格 / all styles, generate catalog banners only, ten per batch, 3-1 canvas, label numbers in chat. Do not emit 50 avatars until they pick.
+If they say 对照 / 全部风格 / all styles / 重做 N 套, still finish First collect. Then generate catalog banners only, ten per batch, 3-1 canvas, with this turn's banner line. Label numbers in chat. Do not emit 50 avatars until they pick. When a style already has both banner and avatar, assemble its 749x465 preview into `.huzi-profile/{nn}-{slug}-preview.png` using this turn's name, handle, and bio.
 
 If they pick one number, that language wins. Derive the avatar from it. Do not mix a second catalog style on the same account.
 
@@ -191,6 +213,7 @@ Studio textures in references/style-packs.md are the short recipe book. World-st
 - Do not ship portrait avatars or 16-9 banners
 - Do not put banner type or focal objects inside the bottom-left avatar circle or the top/bottom 18 percent; backgrounds and non-critical style elements must continue across the full width
 - Do not generate 20 name lists with no visuals
+- Do not reuse a previous pack's display name, handle, bio, or banner line unless the user restates or confirms it in this turn
 - Do not use copyrighted character likenesses
 - Do not export Word/PDF unless asked
 - Do not ship generic AI-media slop (neural globes, particle trails, rain neon, gold serif on navy, lens flare)
@@ -198,5 +221,5 @@ Studio textures in references/style-packs.md are the short recipe book. World-st
 - Do not ship a banner whose line could sit on any other studio — it must match this bio
 - Do not ship an avatar whose mark is a small island in empty space
 - Do not ship two packs that share the same silhouette (black HUZI on cream). Design language must identify the pack with the name covered
-- Do not ship type whose ink matches the local field, and do not hide the collision under a generic plate. Recast only the type ink (references/design-bar.md)
-- Do not stop before delivering the assembled profile preview card (749x465). The user must see the full in-situ profile layout (banner + avatar + text + buttons) combined before uploading.
+- Do not ship type whose ink matches the local field, and do not hide the collision under a generic plate. Recast the entire lockup to one distinct ink; keep anti-aliased edges (references/design-bar.md)
+- Do not stop before delivering the assembled profile preview card (749x465) written to `.huzi-profile/`. The user must see the full in-situ profile layout (banner + avatar + text + buttons) combined before uploading.

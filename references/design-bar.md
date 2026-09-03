@@ -24,7 +24,7 @@ Ask before sending — would this look at home on a small independent studio sit
 
 - One subject, one material, one light. Not a collage of metaphors.
 - Palette is 3-5 hexes used as ink, metal, paper, cloth. No rainbow accents.
-- Banner type is mandatory when the mark alone does not state the practice. Use 3-8 words cut from the bio, large, in the live band. Do not invent a second slogan. Do not stack title + subtitle + motto.
+- Banner type is a lockup, not a caption. 3-8 words cut from the bio. Height about 16-30 percent of the 500px banner (80-150px), or the lockup fills its style module (the red plane, the Ulm cell, the phototype bar). Cut, tracking, stacking, and slant come from the style. A 48px sentence centered on every banner is a defect. Do not invent a second slogan.
 - Surfaces must be specific — cold-pressed paper, anodized aluminum, kiln porcelain, chalk on navy board, 32-pixel tiles. "Futuristic dark background" is not a surface.
 - Composition is asymmetric and quiet. Empty space may be a feature, but it must come from the selected style—not from a universal blank-left template. The style language should span the full banner.
 - Avatar must read as a mark at 40px — silhouette first, detail second.
@@ -34,15 +34,29 @@ Ask before sending — would this look at home on a small independent studio sit
 
 ## Type contrast
 
-Paint the wordless ground first. Set the banner line and the HUZI mark in a later pass. Cut, tracking, size, and ink all come from the chosen style — Lubalin is tight grotesque in the pack's black or cream, not a caption box dropped on top of the pattern.
+Paint the wordless ground first. Set the banner line and the HUZI mark in a later pass with the font rasterizer (PIL `ImageDraw.text` or equivalent). Cut, tracking, size, and ink all come from the chosen style — Lubalin is tight grotesque in the pack's black or cream, not a caption box dropped on top of the pattern.
 
-After type is placed, look at the actual field under each letter. If a character shares value or hue with the pattern it sits on, recast only the type ink. Pick another color already in the style palette, or the opposite of the dominant local field. Do not add a plate, bar, or halo to solve a color collision. Then re-inspect.
+Keep letter edges anti-aliased. Composite type through its coverage alpha so fringe pixels stay mixed with the ground.
+
+If the lockup and the picture are too close in value or hue — the same color, or hard to separate at a glance — recast **the entire lockup to one new ink**. Do not recast letter by letter. The new ink may leave the style palette; distinguishability beats style color rules.
+
+Pick one color for the whole banner line, and one color for the whole avatar mark:
+
+- Light field → near-black
+- Dark field → near-white
+- Mixed light and dark under the same line → a strong third color that reads on both (a vivid blue is the default), not a mix of black and white letters
+
+Do not threshold each pixel against the ground, and do not snap semi-transparent edge pixels to solid ink — that is what makes jagged edges.
+
+If the style needs a slant, use an italic or oblique cut, or draw the lockup at 2–4×, rotate with bicubic, downsample with Lanczos, and still composite through alpha. A 1× raster rotate plus a binary mask is a defect.
+
+Do not add a plate, bar, or halo to solve a color collision. Then re-inspect.
 
 Avatar check size is 40px. Banner check size is a thumbnail.
 
 Busy fields are expected. Letter-like geometry is the field, not a substitute for the banner line or the name.
 
-Automatic fail: type that disappears into the field; and type that sits on a generic white or cream box that is not in the style.
+Automatic fail: type that disappears into the field; type recast letter-by-letter so the lockup is two inks; type that sits on a generic white or cream box that is not in the style; type whose edges are jagged from binary masking or per-pixel recast; banner type that is a small caption instead of a designed lockup.
 
 ## Banned defaults (automatic fail)
 
