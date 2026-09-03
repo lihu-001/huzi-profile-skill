@@ -14,7 +14,6 @@ huzi-profile/
 ├── README.md
 ├── LICENSE
 ├── compose_preview.py
-├── assets/
 └── references/
     ├── world-styles.md
     ├── style-packs.md
@@ -27,7 +26,7 @@ huzi-profile/
 
 Clone this repository directly to the host's skill directory as `huzi-profile`, then load the root `SKILL.md`. Claude/Codex commonly use `skills/` or `.agents/skills/`; Grok commonly uses `.grok/skills/`.
 
-Allow on-demand reads of `references/*.md` and bundled previews from `assets/`.
+Allow on-demand reads of `references/*.md`.
 
 No binaries ship with this skill. Image tools differ by host.
 
@@ -63,38 +62,40 @@ python compose_preview.py --name "<display name>" --handle "<handle>" --bio "<bi
 ```
 ## How the user picks a style
 
-Name a number, English name, or Chinese name: `用 01 Swiss`, `要包豪斯`, `封面用第 13 套`.
+Name a number, English name, or Chinese name: `用 01 Swiss`, `要包豪斯`, `封面用第 10 套`.
 
-Or dump the catalog:
+Default is **3 packs** from the 14-style catalog. Do not ask whether to generate 50 styles.
+
+Dump the 14 catalog banners only when the user already said:
 
 - `对照全部风格`
 - `输出全部封面`
 - `all styles`
 
-Generate 1500×500 banners in batches of ten. Avatars only after a pick.
+Avatars only after a pick. `对照风格` / `选风格` means pick from the table, not dump it.
 
 Catalog style numbers and names live in the table below. Runtime packs are generated in chat.
 
-## World styles
+## World styles (01–14)
 
 | # | Name | What you should recognize | Fits |
 |---|---|---|---|
 | 01 | Swiss | grid, flush grotesque | product notes |
 | 02 | Bauhaus | circle, bar, square | studio, course |
-| 05 | New Typography | heavy rules, asymmetric | editorial |
-| 06 | Art Nouveau | whiplash plant line | decorative, rare |
-| 07 | Art Deco | chevron, gold/black | event |
-| 08 | Arts and Crafts | woodcut border | craft, press |
-| 09 | Vienna Secession | gold grid, black field | design firm |
-| 11 | Dada | ransom newsprint | critique |
-| 12 | Suprematism | black square, red plane | concept |
-| 13 | Sachplakat | one giant object | tools, workflows |
-| 28 | New Wave | broken Swiss grid | experimental type |
-| 29 | Memphis | pink lime terrazzo | playful, costume risk |
-| 42 | Material Design | stacked sheets | product |
-| 45 | Neumorphism | same-color relief | soft UI |
+| 03 | New Typography | heavy rules, asymmetric | editorial |
+| 04 | Art Nouveau | whiplash plant line | decorative, rare |
+| 05 | Art Deco | chevron, gold/black | event |
+| 06 | Arts and Crafts | woodcut border | craft, press |
+| 07 | Vienna Secession | gold grid, black field | design firm |
+| 08 | Dada | ransom newsprint | critique |
+| 09 | Suprematism | black square, red plane | concept |
+| 10 | Sachplakat | one giant object | tools, workflows |
+| 11 | New Wave | broken Swiss grid | experimental type |
+| 12 | Memphis | pink lime terrazzo | playful, costume risk |
+| 13 | Material Design | stacked sheets | product |
+| 14 | Neumorphism | same-color relief | soft UI |
 
-One-person AI-media defaults: 01, 02, 13.
+One-person AI-media defaults: 01, 02, 10.
 
 ## Shorter studio textures
 

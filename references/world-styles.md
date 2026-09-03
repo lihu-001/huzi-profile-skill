@@ -1,21 +1,22 @@
 # World style catalog
 
-Selectable graphic-design languages. Not a second brand. Pick one number after the IP sentence exists.
+Closed set of 14 graphic-design languages, numbered **01–14**, not 50. Numbers outside 01–14 do not exist. Not a second brand. Pick one number after the IP sentence exists.
 
-When the user names a number, a Chinese/English style name, or says 全部 / all styles / 对照, use this file.
+When the user names a number or a Chinese/English style name from this list, use this file. Default after First collect is 3 packs, not a catalog dump.
 
 ## How to run
 
 1. Manufacture 1500x500 canvas, then `render_edited_image`. Never use landscape generate as the final banner.
 2. Carry the selected design language across the full canvas. Keep type and key focal objects outside the bottom-left avatar circle; backgrounds and non-critical style elements may continue through it.
-3. Wordless ground, type in a later pass, contrast per SKILL.md steps 6–7 and references/design-bar.md. The banner line and the name mark come from this turn's First collect, not from `assets/` specimens.
+3. Wordless ground, type in a later pass, contrast per SKILL.md steps 6–7 and references/design-bar.md. The banner line and the name mark come from this turn's First collect, not from leftover files.
 4. Never put adjectives, percents, or prompt notes next to the brand name.
 5. No musicians, instruments, or a second persona unless that is the IP.
 6. One style = one design language. Cover the name — the method must still be visible.
 
-Catalog mode (user asks for all, 对照, 选风格)
+Catalog dump (only if the user already said 对照全部风格 / 输出全部封面 / 全部风格 / all styles)
 
-- Draw banners in batches of 10 on the same 3-1 canvas.
+- Generate these 14 banners on 3-1 canvases. Do not invent a 50-style run. Do not ask whether to dump the catalog.
+- `对照风格` and `选风格` mean pick from this list, not dump it.
 - Label each image with its number and name in the chat, not on the picture.
 - Do not also emit every catalog avatar unless asked.
 - After a pick, derive the avatar from that language only.
@@ -29,40 +30,40 @@ Grid, flush grotesque, objective. Prompt — faint modular grid, flush-left word
 ### 02 Bauhaus
 Circle bar square, primary color, form follows function.
 
-### 05 New Typography
+### 03 New Typography
 Asymmetric rules, Akzidenz-like grotesque, no centered axis.
 
-### 06 Art Nouveau
+### 04 Art Nouveau
 Whiplash plant line, tall Latin, olive gold. No Victorian dump, no orchestra.
 
-### 07 Art Deco
+### 05 Art Deco
 Chevron, sunburst, condensed gold on black.
 
-### 08 Arts and Crafts
+### 06 Arts and Crafts
 Woodcut botanical border, honest roman on cream. Pattern as ethics, not a folk band.
 
-### 09 Vienna Secession
+### 07 Vienna Secession
 Gold square grid, Hoffmann geometry, black field.
 
-### 11 Dada
+### 08 Dada
 Torn newsprint, mixed wood type, stamped line askew.
 
-### 12 Suprematism
+### 09 Suprematism
 One black square, one red rectangle, tiny type.
 
-### 13 Sachplakat
+### 10 Sachplakat
 One object on one flat field. Object is the poster.
 
-### 28 New Wave
+### 11 New Wave
 Broken Swiss grid, stepped type, rules at wrong angles.
 
-### 29 Memphis
+### 12 Memphis
 Squiggle, terrazzo, hot pink lime. Pattern clash, no dancers.
 
-### 42 Material Design
+### 13 Material Design
 Overlapping colored sheets, soft paper shadow.
 
-### 45 Neumorphism
+### 14 Neumorphism
 Same-color soft extrusion on pale gray.
 
 ## Prompt skeleton

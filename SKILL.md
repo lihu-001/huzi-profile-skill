@@ -1,6 +1,6 @@
 ---
 name: huzi-profile
-description: Build a complete X (Twitter) new-user profile pack — display name, handle, bio, avatar, banner, and in-situ 749x465 profile preview card. Use when the user runs /huzi-profile, or asks for X or Twitter profile setup, 取名, 简介, 头像, 封面, 预览, handle ideas, style number from the catalog, 对照风格, or a personal brand kit. Design from the personal IP goal first. Banner before avatar. Aim at award-level identity (D and AD / ADC / JAGDA methods), not stock moodboards. Always produce true 1-1 avatars, 3-1 banners with safe zones, and the assembled profile preview card (749x465).
+description: Build a complete X (Twitter) new-user profile pack — display name, handle, bio, avatar, banner, and in-situ 749x465 profile preview card. Use when the user runs /huzi-profile, or asks for X or Twitter profile setup, 取名, 简介, 头像, 封面, 预览, handle ideas, style number from the 14-style catalog (not 50), 对照风格, or a personal brand kit. Design from the personal IP goal first. Banner before avatar. Aim at award-level identity (D and AD / ADC / JAGDA methods), not stock moodboards. Always produce true 1-1 avatars, 3-1 banners with safe zones, and the assembled profile preview card (749x465). Default 3 packs; do not ask to generate 50 styles.
 ---
 
 # HUZI Profile
@@ -41,7 +41,7 @@ Read references/masters.md before prompting images.
 
 ## First collect (this turn, before any image)
 
-Ask only what this message does not state. A previous pack, `assets/` specimens, `.huzi-profile/` leftovers, and `compose_preview.py` defaults are not this turn's identity. Do not start canvases until the list below exists or the user confirms it.
+Ask only what this message does not state. A previous pack, `.huzi-profile/` leftovers, and `compose_preview.py` defaults are not this turn's identity. Do not start canvases until the list below exists or the user confirms it.
 
 - IP sentence above
 - Purpose — personal creator, brand, alt
@@ -50,7 +50,7 @@ Ask only what this message does not state. A previous pack, `assets/` specimens,
 - Face on camera or mark-only
 - Constraints — no CJK on images, no face, must include a wordmark, etc.
 
-If they only want options, write 3 different IP sentences and one pack each. Do not stall on vibe adjectives.
+If they only want options, write 3 different IP sentences and one pack each. Do not stall on vibe adjectives. Do not ask whether to generate 50 styles or dump the catalog. Default is 3 packs from the closed catalog below.
 
 ## Specs
 
@@ -115,12 +115,12 @@ python compose_preview.py \
   --out .huzi-profile/profile-preview.png
 ```
 
-Each catalog style (对照 / 重做 N 套) — same script, named preview in the same folder. Name, handle, and bio still come from this turn, not from script defaults:
+Each catalog style (对照全部风格 / 重做 N 套) — same script, named preview in the same folder. Name, handle, and bio still come from this turn, not from script defaults:
 
 ```bash
 python compose_preview.py \
-  --banner assets/01-swiss.png \
-  --avatar assets/01-swiss-avatar.png \
+  --banner .huzi-profile/banner.png \
+  --avatar .huzi-profile/avatar.png \
   --name "<display name collected this turn>" \
   --handle "<handle collected this turn>" \
   --bio "<bio collected this turn>" \
@@ -168,7 +168,7 @@ Write the bio before the banner. The banner line must be a compression of that b
 10. Assembled profile preview image in `.huzi-profile/` (749x465) — primary composite deliverable. Single pack: `profile-preview.png`. Multiple styles: `{nn}-{slug}-preview.png`.
 11. Production upload assets via the canvas pipeline: `.huzi-profile/banner.png` (1500x500) and `.huzi-profile/avatar.png` (1408x1408 square).
 
-Max 5 packs. Prefer 3.
+Default 3 packs from the closed catalog. Max 5. Not 50. Not the full catalog unless they already asked to dump it.
 
 ## Naming, bio, handles
 
@@ -178,7 +178,7 @@ Max 5 packs. Prefer 3.
 - Bio does one job. Specific beats vague. 0-2 emoji. Count after writing.
 - Do not impersonate living public figures.
 
-Style menus live in README.md (user-facing catalog table) and references/world-styles.md (how to generate each number). Studio textures stay in references/style-packs.md.
+Style menus live in README.md (user-facing 14-style table) and references/world-styles.md (how to generate each number). Studio textures stay in references/style-packs.md. The old 50-style catalog is retired.
 
 ## Visual system
 
@@ -200,9 +200,15 @@ Invented marks — generate freely. Real named people — image-gen-edit skill.
 
 ## Style choice (after IP)
 
-User may pick by number, English name, or Chinese name. Catalog is README.md plus references/world-styles.md.
+Closed catalog — **01–14**, not 50: 01 Swiss, 02 Bauhaus, 03 New Typography, 04 Art Nouveau, 05 Art Deco, 06 Arts and Crafts, 07 Vienna Secession, 08 Dada, 09 Suprematism, 10 Sachplakat, 11 New Wave, 12 Memphis, 13 Material Design, 14 Neumorphism. Recipes in references/world-styles.md. Numbers outside 01–14 do not exist.
 
-If they say 对照 / 全部风格 / all styles / 重做 N 套, still finish First collect. Then generate catalog banners only, ten per batch, 3-1 canvas, with this turn's banner line. Label numbers in chat. Do not emit every catalog avatar until they pick. When a style already has both banner and avatar, assemble its 749x465 preview into `.huzi-profile/{nn}-{slug}-preview.png` using this turn's name, handle, and bio.
+User may pick by number, English name, or Chinese name.
+
+Default after First collect: 3 packs (max 5). One-person AI-media defaults: 01, 02, 10. Do not ask whether to generate 50 styles, 14 styles, or dump the catalog.
+
+Full catalog dump only when they already said `对照全部风格` / `输出全部封面` / `全部风格` / `all styles`. Then generate these 14 catalog banners only, 3-1 canvas, this turn's banner line. Label numbers in chat. Do not emit every catalog avatar until they pick. When a style already has both banner and avatar, assemble its 749x465 preview into `.huzi-profile/{nn}-{slug}-preview.png` using this turn's name, handle, and bio.
+
+`对照风格` and `选风格` mean pick from this list, not dump the catalog. `重做 N 套` means N packs, not 50 and not the full catalog.
 
 If they pick one number, that language wins. Derive the avatar from it. Do not mix a second catalog style on the same account.
 
@@ -212,6 +218,7 @@ Studio textures in references/style-packs.md are the short recipe book. World-st
 
 - Do not ship portrait avatars or 16-9 banners
 - Do not put banner type or focal objects inside the bottom-left avatar circle or the top/bottom 18 percent; backgrounds and non-critical style elements must continue across the full width
+- Do not offer, ask about, or generate a 50-style dump. The catalog is 01–14
 - Do not generate 20 name lists with no visuals
 - Do not reuse a previous pack's display name, handle, bio, or banner line unless the user restates or confirms it in this turn
 - Do not use copyrighted character likenesses
