@@ -13,6 +13,7 @@ huzi-profile/
 ├── SKILL.md
 ├── README.md
 ├── LICENSE
+├── compose_preview.py
 ├── assets/
 └── references/
     ├── world-styles.md
@@ -41,6 +42,19 @@ No binaries ship with this skill. Image tools differ by host.
 
 Rules that must survive the port: full-width banner design with only the bottom-left avatar circle excluding type and focal objects, avatar mark nearly filling the circle, banner line taken from the bio, style number from `references/world-styles.md`.
 
+
+## Deliverable & Profile Preview
+
+Whenever a profile pack is generated, the skill produces both the standalone upload assets AND the combined in-situ profile preview card (749×465):
+
+1. **`profile-preview.png` (749×465)**: Assembled X desktop dark-mode preview card combining the banner, overlapping circular avatar, verified badge, buttons ("编辑个人资料", "$"), display name, handle, and bio.
+2. **`banner.png` (1500×500)**: Clean 3:1 banner for upload.
+3. **`avatar.png` (1408×1408)**: 1:1 circular-safe avatar for upload.
+
+The card can be composed automatically using the bundled Python script:
+```bash
+python compose_preview.py --banner banner.png --avatar avatar.png --name "HUZI" --handle "@lihu9048" --bio "学习AI，分享AI" --out profile-preview.png
+```
 ## How the user picks a style
 
 Name a number, English name, or Chinese name: `用 01 Swiss`, `要包豪斯`, `封面用第 25 套`.

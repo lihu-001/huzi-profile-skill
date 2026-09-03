@@ -69,3 +69,21 @@ The circular crop is the frame. Content must nearly fill it.
 - Quiet gutter ≈ 5-9 percent on all sides after the circle cuts the corners
 - Fail: a 30 percent word on a 100 percent field (Garden and Macro badges did this)
 - Pass: Night-editor torn ring and Indie pixel HUZI — type is the picture
+
+## Profile preview card coordinates (749 x 465)
+
+When compositing the final in-situ preview card for user inspection:
+
+| Element | X | Y | Dimensions / Radius | Style / Color |
+| --- | --- | --- | --- | --- |
+| Canvas | 0 | 0 | 749 x 465 | Background `#000000` |
+| Banner | 0 | 0 | 749 x 250 | Scaled from 1500x500 (exact 3:1) |
+| Profile panel | 0 | 250 | 749 x 215 | `#000000` |
+| Avatar border | 19 | 158 | d=176 px, r=88 px, center (107, 246) | Circle `#000000`, 4 px stroke |
+| Avatar mask | 23 | 162 | d=168 px, r=84 px, center (107, 246) | Antialiased circular crop of 1:1 avatar |
+| Tip button ($) | 516 | 266 | 44 x 44 px, r=22 px | Circular outline `#536471`, `$`, centered |
+| Edit button | 560 | 266 | 166 x 44 px, r=22 px pill | Outline `#536471`, bold text `#EFF3F4` |
+| Display name | 18 | 362 | Bold 21 px | Text `#EFF3F4` |
+| Verified badge | name_end + 6 | 362 (centered) | 20 x 20 px | Scalloped circle `#1D9BF0`, white checkmark |
+| Handle | 18 | 394 | Regular 15 px | Text `#71767B` |
+| Bio | 18 | 430 | Regular 15 px, line-height 20 px | Text `#EFF3F4`, wrap at 710 px |

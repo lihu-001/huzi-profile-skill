@@ -1,6 +1,6 @@
 ---
 name: huzi-profile
-description: Build a complete X (Twitter) new-user profile pack — display name, handle, bio, avatar, and banner. Use when the user runs /huzi-profile, or asks for X or Twitter profile setup, 取名, 简介, 头像, 封面, handle ideas, style number 01-50, 对照风格, or a personal brand kit. Design from the personal IP goal first. Banner before avatar. Aim at award-level identity (D and AD / ADC / JAGDA methods), not stock moodboards. Always produce true 1-1 avatars and 3-1 banners with safe zones.
+description: Build a complete X (Twitter) new-user profile pack — display name, handle, bio, avatar, banner, and in-situ 749x465 profile preview card. Use when the user runs /huzi-profile, or asks for X or Twitter profile setup, 取名, 简介, 头像, 封面, 预览, handle ideas, style number 01-50, 对照风格, or a personal brand kit. Design from the personal IP goal first. Banner before avatar. Aim at award-level identity (D and AD / ADC / JAGDA methods), not stock moodboards. Always produce true 1-1 avatars, 3-1 banners with safe zones, and the assembled profile preview card (749x465).
 ---
 
 # HUZI Profile
@@ -33,6 +33,7 @@ Do not pick a style pack until this sentence exists. Style packs are textures fo
 6. Paint a wordless ground first. Set the banner line and the HUZI mark in a later pass (code or a second edit), not inside the image-model prompt. Accidental readable words on the ground are a defect. Type cut and ink follow the style.
 7. Type contrast — read references/design-bar.md. If a letter collides with the local field, recast only the type ink, then re-inspect. Do not add a generic plate.
 8. Stunning test — hide the name. Would a design jury remember one decision (one cut of type, one material, one spatial idea)? If it only looks tidy, redo.
+9. Assemble composite profile preview card (749x465) — combine the 3-1 banner, circular avatar, display name, verified badge, handle, bio, and X action buttons into the final preview image via `compose_preview.py` (or Python PIL). Deliver this composite preview directly in chat for user review.
 
 Read references/masters.md before prompting images.
 
@@ -53,6 +54,7 @@ If they only want options, write 3 different IP sentences and one pack each. Do 
 - Bio — max 160 characters
 - Avatar upload — square 400x400 or larger, displayed as a circle
 - Banner upload — 1500x500, exact 3-1
+- Profile preview card — 749x465 (exact X dark-mode layout matching in-situ profile preview)
 
 ## Hard rule — never trust default image orientations
 
@@ -89,6 +91,31 @@ convert -size 1500x500 xc:'#111111' /home/workdir/artifacts/x-banner-3x1.png
 If the edit comes back taller than 1-3 of width, discard and rerun on a fresh 1500x500 canvas. Do not ship it.
 
 Full safe-zone math is in references/safe-zones.md. Read it before writing any banner prompt.
+### Profile preview card canvas (mandatory)
+
+After generating the 1500x500 banner and 1408x1408 avatar, assemble them into the 749x465 profile preview card so the user can directly see how their identity looks on X:
+
+```bash
+python compose_preview.py \
+  --banner path/to/banner.png \
+  --avatar path/to/avatar.png \
+  --name "HUZI" \
+  --handle "@lihu9048" \
+  --bio "学习AI，分享AI" \
+  --out path/to/profile-preview.png
+```
+
+Card layout specs (749 x 465):
+- Banner area: top 749 x 250 (exact 3:1 ratio).
+- Profile background: `#000000` (y 250..465).
+- Avatar cutout: center `(107, 246)`, inner circular avatar radius 84 px (diameter 168 px), outer `#000000` border radius 88 px (thickness 4 px, cutting into banner).
+- Action buttons (top right): circular tip button (`$`) at `(516, 266)`, pill button ("编辑个人资料") at `(560, 266)` with `#536471` outline.
+- User metadata (bottom left):
+  - Display name: bold `#EFF3F4`, font 21 px, at `(18, 362)`.
+  - Verified badge: Twitter blue `#1D9BF0` scalloped badge + white checkmark, vertically centered beside name.
+  - Handle: regular `#71767B`, font 15 px, at `(18, 394)`.
+  - Bio: regular `#EFF3F4`, font 15 px, at `(18, 430)`, auto-wrapped to 710 px width.
+
 
 ## Banner overlap — web and mobile
 
@@ -116,7 +143,8 @@ Write the bio before the banner. The banner line must be a compression of that b
 7. Banner brief first — live band, dead zones, bio line, which master method
 8. Avatar brief — how it is derived from the banner
 9. Shared hex palette
-10. Generated assets via the canvas pipeline
+10. Assembled profile preview image (`profile-preview.png`, 749x465) — primary composite deliverable for user preview, displaying banner, avatar, name, handle, bio, and verified badge in situ.
+11. Production upload assets via the canvas pipeline: 1500x500 banner and 1408x1408 (or square) avatar.
 
 Max 5 packs. Prefer 3.
 
@@ -171,3 +199,4 @@ Studio textures in references/style-packs.md are the short recipe book. World-st
 - Do not ship an avatar whose mark is a small island in empty space
 - Do not ship two packs that share the same silhouette (black HUZI on cream). Design language must identify the pack with the name covered
 - Do not ship type whose ink matches the local field, and do not hide the collision under a generic plate. Recast only the type ink (references/design-bar.md)
+- Do not stop before delivering the assembled profile preview card (749x465). The user must see the full in-situ profile layout (banner + avatar + text + buttons) combined before uploading.
