@@ -24,7 +24,7 @@ Ask before sending — would this look at home on a small independent studio sit
 
 - One subject, one material, one light. Not a collage of metaphors.
 - Palette is 3-5 hexes used as ink, metal, paper, cloth. No rainbow accents.
-- Banner type is a lockup, not a caption. 3-8 words cut from the bio. Height about 16-30 percent of the 500px banner (80-150px), or the lockup fills its style module (the red plane, the Ulm cell, the phototype bar). Cut, tracking, stacking, and slant come from the style. A 48px sentence centered on every banner is a defect. Do not invent a second slogan.
+- Banner type is a lockup, not a caption. 3-8 words cut from the bio. Height about 16-30 percent of the 500px banner (80-150px), or the lockup fills its style module (the red plane, the Sachplakat field). Cut, tracking, stacking, and slant come from the style. A 48px sentence centered on every banner is a defect. Do not invent a second slogan.
 - Surfaces must be specific — cold-pressed paper, anodized aluminum, kiln porcelain, chalk on navy board, 32-pixel tiles. "Futuristic dark background" is not a surface.
 - Composition is asymmetric and quiet. Empty space may be a feature, but it must come from the selected style—not from a universal blank-left template. The style language should span the full banner.
 - Avatar must read as a mark at 40px — silhouette first, detail second.
@@ -34,7 +34,7 @@ Ask before sending — would this look at home on a small independent studio sit
 
 ## Type contrast
 
-Paint the wordless ground first. Set the banner line and the HUZI mark in a later pass with the font rasterizer (PIL `ImageDraw.text` or equivalent). Cut, tracking, size, and ink all come from the chosen style — Lubalin is tight grotesque in the pack's black or cream, not a caption box dropped on top of the pattern.
+Paint the wordless ground first. Set the banner line and the HUZI mark in a later pass with the font rasterizer (PIL `ImageDraw.text` or equivalent). Cut, tracking, size, and ink all come from the chosen style — New Typography is tight grotesque in the pack's black or cream, not a caption box dropped on top of the pattern.
 
 Keep letter edges anti-aliased. Composite type through its coverage alpha so fringe pixels stay mixed with the ground.
 

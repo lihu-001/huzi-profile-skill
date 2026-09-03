@@ -1,6 +1,6 @@
 ---
 name: huzi-profile
-description: Build a complete X (Twitter) new-user profile pack — display name, handle, bio, avatar, banner, and in-situ 749x465 profile preview card. Use when the user runs /huzi-profile, or asks for X or Twitter profile setup, 取名, 简介, 头像, 封面, 预览, handle ideas, style number 01-50, 对照风格, or a personal brand kit. Design from the personal IP goal first. Banner before avatar. Aim at award-level identity (D and AD / ADC / JAGDA methods), not stock moodboards. Always produce true 1-1 avatars, 3-1 banners with safe zones, and the assembled profile preview card (749x465).
+description: Build a complete X (Twitter) new-user profile pack — display name, handle, bio, avatar, banner, and in-situ 749x465 profile preview card. Use when the user runs /huzi-profile, or asks for X or Twitter profile setup, 取名, 简介, 头像, 封面, 预览, handle ideas, style number from the catalog, 对照风格, or a personal brand kit. Design from the personal IP goal first. Banner before avatar. Aim at award-level identity (D and AD / ADC / JAGDA methods), not stock moodboards. Always produce true 1-1 avatars, 3-1 banners with safe zones, and the assembled profile preview card (749x465).
 ---
 
 # HUZI Profile
@@ -178,7 +178,7 @@ Max 5 packs. Prefer 3.
 - Bio does one job. Specific beats vague. 0-2 emoji. Count after writing.
 - Do not impersonate living public figures.
 
-Style menus live in README.md (user-facing 50-style table) and references/world-styles.md (how to generate each number). Studio textures stay in references/style-packs.md.
+Style menus live in README.md (user-facing catalog table) and references/world-styles.md (how to generate each number). Studio textures stay in references/style-packs.md.
 
 ## Visual system
 
@@ -200,9 +200,9 @@ Invented marks — generate freely. Real named people — image-gen-edit skill.
 
 ## Style choice (after IP)
 
-User may pick by number (01-50), English name, or Chinese name. Catalog is README.md plus references/world-styles.md.
+User may pick by number, English name, or Chinese name. Catalog is README.md plus references/world-styles.md.
 
-If they say 对照 / 全部风格 / all styles / 重做 N 套, still finish First collect. Then generate catalog banners only, ten per batch, 3-1 canvas, with this turn's banner line. Label numbers in chat. Do not emit 50 avatars until they pick. When a style already has both banner and avatar, assemble its 749x465 preview into `.huzi-profile/{nn}-{slug}-preview.png` using this turn's name, handle, and bio.
+If they say 对照 / 全部风格 / all styles / 重做 N 套, still finish First collect. Then generate catalog banners only, ten per batch, 3-1 canvas, with this turn's banner line. Label numbers in chat. Do not emit every catalog avatar until they pick. When a style already has both banner and avatar, assemble its 749x465 preview into `.huzi-profile/{nn}-{slug}-preview.png` using this turn's name, handle, and bio.
 
 If they pick one number, that language wins. Derive the avatar from it. Do not mix a second catalog style on the same account.
 
