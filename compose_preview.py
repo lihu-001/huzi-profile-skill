@@ -270,8 +270,8 @@ def compose_profile_preview(
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Compose X (Twitter) profile preview card.")
-    parser.add_argument("--banner", required=True, help="Path to banner image (1500x500 or any 3:1 ratio)")
-    parser.add_argument("--avatar", required=True, help="Path to avatar image (1:1 square)")
+    parser.add_argument("--banner", default=".huzi-profile/banner.png", help="Path to banner image (default: .huzi-profile/banner.png)")
+    parser.add_argument("--avatar", default=".huzi-profile/avatar.png", help="Path to avatar image (default: .huzi-profile/avatar.png)")
     parser.add_argument("--name", default="HUZI", help="Display name (default: HUZI)")
     parser.add_argument("--handle", default="@lihu9048", help="X handle (default: @lihu9048)")
     parser.add_argument("--bio", default="学习AI，分享AI", help="User bio (default: 学习AI，分享AI)")
@@ -279,9 +279,17 @@ def main() -> None:
     parser.add_argument("--button-text", default="编辑个人资料", help="Right action button text")
     parser.add_argument("--width", type=int, default=749, help="Output width (default: 749)")
     parser.add_argument("--height", type=int, default=465, help="Output height (default: 465)")
-    parser.add_argument("--out", default="profile-preview.png", help="Output path (default: profile-preview.png)")
-
+    parser.add_argument("--out", default=".huzi-profile/profile-preview.png", help="Output path (default: .huzi-profile/profile-preview.png)")
     args = parser.parse_args()
+    banner_path = Path(args.banner)
+    avatar_path = Path(args.avatar)
+    if not banner_path.exists():
+        print(f"[Error] Banner not found at: {banner_path}")
+        sys.exit(1)
+    if not avatar_path.exists():
+        print(f"[Error] Avatar not found at: {avatar_path}")
+        sys.exit(1)
+
 
     res = compose_profile_preview(
         banner_path_or_img=args.banner,

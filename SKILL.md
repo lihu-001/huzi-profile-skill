@@ -55,6 +55,7 @@ If they only want options, write 3 different IP sentences and one pack each. Do 
 - Avatar upload — square 400x400 or larger, displayed as a circle
 - Banner upload — 1500x500, exact 3-1
 - Profile preview card — 749x465 (exact X dark-mode layout matching in-situ profile preview)
+- Default output directory — `.huzi-profile/` under the current workspace. All generated deliverables (`profile-preview.png`, `banner.png`, `avatar.png`) default to this directory.
 
 ## Hard rule — never trust default image orientations
 
@@ -65,7 +66,7 @@ Always manufacture the canvas first, then paint onto it.
 ### Avatar canvas (mandatory)
 
 ```bash
-convert -size 1408x1408 xc:'#111111' /home/workdir/artifacts/x-avatar-1x1.png
+convert -size 1408x1408 xc:'#111111' .huzi-profile/avatar.png
 ```
 
 `read_file` that PNG to get an image_id. Then `render_edited_image` onto that id. The prompt must say keep this exact square 1-1 canvas, fill the frame, no letterbox bars.
@@ -83,7 +84,7 @@ When writing the image prompt, never put a percentage, pixel size, or the words 
 ### Banner canvas (mandatory)
 
 ```bash
-convert -size 1500x500 xc:'#111111' /home/workdir/artifacts/x-banner-3x1.png
+convert -size 1500x500 xc:'#111111' .huzi-profile/banner.png
 ```
 
 `read_file` that PNG. Then `render_edited_image` onto that id. The prompt must say keep this exact 3-1 canvas, no added bars, no 16-9 scene.
@@ -97,13 +98,12 @@ After generating the 1500x500 banner and 1408x1408 avatar, assemble them into th
 
 ```bash
 python compose_preview.py \
-  --banner path/to/banner.png \
-  --avatar path/to/avatar.png \
+  --banner .huzi-profile/banner.png \
+  --avatar .huzi-profile/avatar.png \
   --name "HUZI" \
   --handle "@lihu9048" \
   --bio "学习AI，分享AI" \
-  --out path/to/profile-preview.png
-```
+  --out .huzi-profile/profile-preview.png
 
 Card layout specs (749 x 465):
 - Banner area: top 749 x 250 (exact 3:1 ratio).
@@ -143,8 +143,8 @@ Write the bio before the banner. The banner line must be a compression of that b
 7. Banner brief first — live band, dead zones, bio line, which master method
 8. Avatar brief — how it is derived from the banner
 9. Shared hex palette
-10. Assembled profile preview image (`profile-preview.png`, 749x465) — primary composite deliverable for user preview, displaying banner, avatar, name, handle, bio, and verified badge in situ.
-11. Production upload assets via the canvas pipeline: 1500x500 banner and 1408x1408 (or square) avatar.
+10. Assembled profile preview image (`.huzi-profile/profile-preview.png`, 749x465) — primary composite deliverable for user preview, displaying banner, avatar, name, handle, bio, and verified badge in situ.
+11. Production upload assets via the canvas pipeline: `.huzi-profile/banner.png` (1500x500) and `.huzi-profile/avatar.png` (1408x1408 square).
 
 Max 5 packs. Prefer 3.
 

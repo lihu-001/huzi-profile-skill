@@ -12,8 +12,8 @@ Read this before generating profile images.
 
 | Asset | Canvas | Ratio | Command |
 | --- | --- | --- | --- |
-| Avatar | 1408 x 1408 | 1-1 | convert -size 1408x1408 xc:'#111111' /home/workdir/artifacts/x-avatar-1x1.png |
-| Banner | 1500 x 500 | 3-1 | convert -size 1500x500 xc:'#111111' /home/workdir/artifacts/x-banner-3x1.png |
+| Avatar | 1408 x 1408 | 1-1 | convert -size 1408x1408 xc:'#111111' .huzi-profile/avatar.png |
+| Banner | 1500 x 500 | 3-1 | convert -size 1500x500 xc:'#111111' .huzi-profile/banner.png |
 
 Paint with render_edited_image on the read_file id of that canvas. Keep the canvas ratio. Do not ask the model to "look square" inside a portrait frame.
 
